@@ -12,6 +12,7 @@ pages = {
     "V2 · 감성 중심": "landing_v2.html",
     "V3 · 전환율 중심(CTA)": "landing_v3.html",
     "V4 · 초보자 친화": "landing_v4.html",
+    "V4 · 뉴로 친화": "landing_v5.html",
 }
 
 selected = st.selectbox("확인할 랜딩페이지를 선택하세요", pages.keys())

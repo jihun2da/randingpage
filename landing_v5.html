@@ -1,0 +1,908 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>기린컴퍼니 | 아동복 도매 플랫폼 · 사입대행 · 위탁배송</title>
+  <meta name="description" content="기린컴퍼니 이용 안내, 도매 인증 절차, 주문/배송 가이드, FAQ, 주의사항 및 고객지원 안내." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#ffffff;
+      --bg-alt:#f6f8fb;
+      --text:#0f172a;
+      --muted:#475569;
+      --line:rgba(15,23,42,.10);
+
+      --primary:#2563eb;     /* trust blue */
+      --primary2:#60a5fa;
+      --soft:rgba(37,99,235,.10);
+
+      --radius:18px;
+      --shadow:0 14px 34px rgba(2,6,23,.10);
+      --shadow-soft:0 10px 24px rgba(2,6,23,.08);
+
+      --max:1120px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:"Noto Sans KR", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      letter-spacing:-0.2px;
+    }
+    a{color:inherit; text-decoration:none}
+    .container{
+      width:min(var(--max), calc(100% - 40px));
+      margin:0 auto;
+    }
+
+    /* Top Nav */
+    header{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(10px);
+      background: rgba(255,255,255,.78);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      padding:14px 0;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:900;
+      letter-spacing:0.2px;
+    }
+    .logo{
+      width:34px; height:34px;
+      border-radius:12px;
+      background:
+        radial-gradient(120% 120% at 20% 20%, rgba(96,165,250,.55) 0%, rgba(37,99,235,.45) 40%, rgba(37,99,235,.15) 100%),
+        linear-gradient(180deg, rgba(255,255,255,.85), rgba(255,255,255,0));
+      border:1px solid rgba(37,99,235,.25);
+      box-shadow:0 10px 20px rgba(37,99,235,.15);
+      position:relative;
+      overflow:hidden;
+      flex: 0 0 auto;
+    }
+    .logo:after{
+      content:"";
+      position:absolute;
+      inset:-20px;
+      background:conic-gradient(from 180deg, rgba(255,255,255,0), rgba(255,255,255,.55), rgba(255,255,255,0));
+      transform: rotate(12deg);
+      opacity:.55;
+    }
+    .brand small{
+      display:block;
+      font-weight:700;
+      color:var(--muted);
+      margin-top:1px;
+      letter-spacing:-0.2px;
+    }
+    nav{
+      display:flex;
+      gap:16px;
+      align-items:center;
+      color:var(--muted);
+      font-weight:700;
+      font-size:14px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    nav a{
+      padding:10px 10px;
+      border-radius:10px;
+      white-space:nowrap;
+    }
+    nav a:hover{
+      background: rgba(2,6,23,.04);
+      color:var(--text);
+    }
+
+    /* Buttons */
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:12px 16px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:#fff;
+      font-weight:800;
+      font-size:14px;
+      box-shadow: 0 6px 18px rgba(2,6,23,.06);
+      transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+      cursor:pointer;
+      white-space:nowrap;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 12px 26px rgba(2,6,23,.10);
+      border-color: rgba(37,99,235,.25);
+    }
+    .btn-primary{
+      background: linear-gradient(135deg, var(--primary) 0%, #1d4ed8 55%, #1e40af 100%);
+      color:#fff;
+      border-color: rgba(37,99,235,.35);
+      box-shadow: 0 14px 34px rgba(37,99,235,.25);
+    }
+    .btn-primary:hover{
+      box-shadow: 0 18px 44px rgba(37,99,235,.30);
+      transform: translateY(-2px);
+    }
+    .btn-ghost{
+      background: rgba(2,6,23,.02);
+    }
+
+    /* Hero */
+    .hero{
+      position:relative;
+      overflow:hidden;
+      padding: 44px 0 18px;
+    }
+    .hero:before{
+      content:"";
+      position:absolute;
+      inset:-220px -100px auto -100px;
+      height:560px;
+      background:
+        radial-gradient(60% 60% at 15% 30%, rgba(96,165,250,.35) 0%, rgba(96,165,250,0) 60%),
+        radial-gradient(60% 60% at 70% 15%, rgba(37,99,235,.22) 0%, rgba(37,99,235,0) 60%),
+        radial-gradient(60% 60% at 85% 65%, rgba(14,165,233,.15) 0%, rgba(14,165,233,0) 62%);
+      pointer-events:none;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 22px;
+      align-items: stretch;
+      position: relative;
+      z-index: 2;
+      padding: 18px 0 8px;
+    }
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      font-size:13px;
+      font-weight:900;
+      color: var(--primary);
+      background: var(--soft);
+      border:1px solid rgba(37,99,235,.20);
+      padding: 9px 12px;
+      border-radius: 999px;
+      width: fit-content;
+    }
+    h1{
+      margin: 14px 0 10px;
+      font-size: clamp(30px, 3.2vw, 46px);
+      line-height: 1.12;
+      letter-spacing:-0.9px;
+    }
+    .lead{
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.75;
+      max-width: 64ch;
+      font-weight: 500;
+    }
+    .hero-cta{
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+    .chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top: 14px;
+    }
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.72);
+      font-weight: 800;
+      font-size: 13px;
+      color: var(--text);
+    }
+
+    .hero-card{
+      border: 1px solid rgba(37,99,235,.18);
+      background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.78));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+      display:flex;
+      flex-direction: column;
+      gap: 12px;
+      position: relative;
+      overflow:hidden;
+    }
+    .hero-card:before{
+      content:"";
+      position:absolute;
+      inset:auto -120px -160px auto;
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(50% 50% at 50% 50%, rgba(37,99,235,.18) 0%, rgba(37,99,235,0) 70%);
+      pointer-events:none;
+    }
+    .hero-card h3{
+      margin:0;
+      font-size:16px;
+      letter-spacing:-0.3px;
+    }
+    .stat-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .stat{
+      padding: 14px 14px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(2,6,23,.02);
+    }
+    .stat strong{
+      display:block;
+      font-size: 16px;
+      letter-spacing:-0.3px;
+    }
+    .stat span{
+      display:block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+    .note{
+      padding: 14px 14px;
+      border-radius: 14px;
+      border: 1px dashed rgba(37,99,235,.35);
+      background: rgba(37,99,235,.06);
+      color: #1e3a8a;
+      font-weight: 800;
+      line-height: 1.55;
+      font-size: 13px;
+    }
+
+    /* Sections */
+    section{
+      padding: 56px 0;
+      border-top: 1px solid var(--line);
+    }
+    .section-head{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap: 18px;
+      margin-bottom: 22px;
+    }
+    .section-head h2{
+      margin:0;
+      font-size: 28px;
+      letter-spacing: -0.6px;
+    }
+    .section-head p{
+      margin:0;
+      color: var(--muted);
+      max-width: 64ch;
+      line-height: 1.7;
+      font-weight: 500;
+    }
+
+    .grid-3{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px;}
+    .grid-2{display:grid; grid-template-columns: repeat(2, 1fr); gap:14px;}
+
+    .card{
+      border: 1px solid var(--line);
+      background:#fff;
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow-soft);
+    }
+    .card.soft{
+      background: linear-gradient(180deg, rgba(2,6,23,.02), rgba(2,6,23,.01));
+    }
+    .icon{
+      width: 44px; height: 44px;
+      border-radius: 14px;
+      background: rgba(37,99,235,.10);
+      border: 1px solid rgba(37,99,235,.18);
+      display:grid;
+      place-items:center;
+      margin-bottom: 12px;
+      font-size: 18px;
+      font-weight: 900;
+      color: #1d4ed8;
+    }
+    .card h3{
+      margin:0 0 8px;
+      font-size: 18px;
+      letter-spacing:-0.4px;
+    }
+    .card p{
+      margin:0;
+      color: var(--muted);
+      line-height: 1.75;
+      font-weight: 500;
+      font-size: 14px;
+    }
+
+    /* Steps */
+    .step{
+      display:flex;
+      gap: 12px;
+      align-items:flex-start;
+    }
+    .num{
+      width: 34px; height: 34px;
+      border-radius: 12px;
+      background: rgba(37,99,235,.10);
+      border: 1px solid rgba(37,99,235,.22);
+      display:grid;
+      place-items:center;
+      font-weight: 1000;
+      color: #1d4ed8;
+      flex: 0 0 auto;
+    }
+    .sub{
+      margin-top: 10px;
+      padding: 12px 12px;
+      border-radius: 14px;
+      background: rgba(2,6,23,.02);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    /* Highlight strip */
+    .strip{
+      margin-top: 16px;
+      border-radius: 18px;
+      border: 1px solid rgba(37,99,235,.18);
+      background: linear-gradient(135deg, rgba(37,99,235,.10), rgba(96,165,250,.08), rgba(255,255,255,.7));
+      padding: 18px 18px;
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px 14px;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .strip strong{font-size:15px; letter-spacing:-0.3px;}
+    .strip span{color:var(--muted); font-weight:700; font-size:13px;}
+
+    /* FAQ */
+    .faq{
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      overflow:hidden;
+      background:#fff;
+      box-shadow: var(--shadow-soft);
+    }
+    details{border-top:1px solid var(--line);}
+    details:first-child{border-top:0;}
+    summary{
+      list-style:none;
+      padding: 16px 18px;
+      cursor:pointer;
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 12px;
+      font-weight: 900;
+      letter-spacing:-0.3px;
+    }
+    summary::-webkit-details-marker{display:none;}
+    .faq-q{display:flex; gap:10px; align-items:flex-start;}
+    .qtag{
+      width:28px; height:28px;
+      border-radius: 10px;
+      background: rgba(37,99,235,.10);
+      border: 1px solid rgba(37,99,235,.22);
+      display:grid; place-items:center;
+      color:#1d4ed8;
+      font-weight: 1000;
+      flex:0 0 auto;
+      margin-top: 1px;
+    }
+    .faq-a{
+      padding: 0 18px 18px;
+      color: var(--muted);
+      font-weight: 600;
+      line-height: 1.75;
+      font-size: 14px;
+    }
+    .chev{
+      width:22px; height:22px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      display:grid; place-items:center;
+      color: var(--muted);
+      flex:0 0 auto;
+      margin-top: 2px;
+      transition: transform .15s ease;
+    }
+    details[open] .chev{transform: rotate(180deg);}
+
+    /* Footer CTA */
+    .final-cta{
+      margin-top: 16px;
+      border-radius: 22px;
+      border: 1px solid rgba(37,99,235,.22);
+      background:
+        radial-gradient(60% 70% at 10% 10%, rgba(96,165,250,.22), rgba(96,165,250,0) 55%),
+        radial-gradient(60% 70% at 90% 20%, rgba(37,99,235,.18), rgba(37,99,235,0) 60%),
+        linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.78));
+      box-shadow: var(--shadow);
+      padding: 22px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .final-cta h3{
+      margin:0;
+      font-size: 20px;
+      letter-spacing:-0.4px;
+    }
+    .final-cta p{
+      margin:6px 0 0;
+      color: var(--muted);
+      line-height: 1.7;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    /* Footer */
+    footer{
+      border-top: 1px solid var(--line);
+      padding: 28px 0 40px;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 13px;
+      background: var(--bg);
+    }
+    .footer-grid{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .footer-links{
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .footer-links a{
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: rgba(2,6,23,.02);
+    }
+    .footer-links a:hover{
+      border-color: rgba(37,99,235,.25);
+      color: var(--text);
+    }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      nav{display:none;}
+      .hero-grid{grid-template-columns: 1fr;}
+      .grid-3{grid-template-columns: 1fr;}
+      .grid-2{grid-template-columns: 1fr;}
+    }
+    @media (max-width: 420px){
+      .btn{width:100%;}
+      .hero-cta{flex-direction:column;}
+      .stat-grid{grid-template-columns: 1fr;}
+    }
+  </style>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="#top" aria-label="기린컴퍼니">
+          <span class="logo" aria-hidden="true"></span>
+          <span>
+            GIRIN COMPANY
+            <small>아동복 도매 플랫폼 · 사입대행 · 위탁배송</small>
+          </span>
+        </a>
+
+        <nav aria-label="목차">
+          <a href="#about">1. 소개</a>
+          <a href="#verify">2. 이용안내/도매인증</a>
+          <a href="#shipping">3. 주문/배송</a>
+          <a href="#faq">4. FAQ</a>
+          <a href="#support">5. 주의사항/CS</a>
+        </nav>
+
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn btn-ghost" href="#verify">도매인증 방법 보기</a>
+          <a class="btn btn-primary" href="#verify">회원가입 바로가기</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main id="top" class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="badge">◆ 대한민국 아동복 도매 플랫폼 안내</div>
+
+          <h1>
+            대한민국 1위 아동복 도매 플랫폼<br/>
+            <span style="color: var(--primary);">(주)노리앤</span>이 운영하는 기린컴퍼니
+          </h1>
+
+          <p class="lead">
+            2010년부터 이어온 신뢰의 법인 기업 운영 시스템으로,
+            초보 사업자도 쉽게 시작할 수 있도록 <b>창업 무료 지원 및 다양한 혜택</b>을 제공합니다.
+          </p>
+
+          <div class="chips" aria-label="핵심 포인트">
+            <span class="chip">🧸 아우터·탑·원피스·베이비·주니어·패밀리룩</span>
+            <span class="chip">🏢 법인 운영 · 장기 신뢰 기반</span>
+            <span class="chip">🚀 초보 사업자 창업 지원</span>
+          </div>
+
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#verify">회원가입 바로가기 →</a>
+            <a class="btn" href="#about">기린컴퍼니 소개 보기</a>
+          </div>
+
+          <div class="note" style="margin-top:14px;">
+            “지금 바로 기린컴퍼니의 파트너가 되어 성공적인 아동복 비즈니스를 시작하세요!”
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="빠른 요약">
+          <h3>한눈에 보는 안내</h3>
+          <div class="stat-grid">
+            <div class="stat">
+              <strong>도매 전용</strong>
+              <span>일반 회원가입 후 도매 인증 필요</span>
+            </div>
+            <div class="stat">
+              <strong>승인 완료</strong>
+              <span>도매 회원 이벤트/특별 단가 확인</span>
+            </div>
+            <div class="stat">
+              <strong>결제 안내</strong>
+              <span>무통장 입금(국민은행) 지원</span>
+            </div>
+            <div class="stat">
+              <strong>배송</strong>
+              <span><span style="font-weight:900;">CJ 대한통운</span> 이용</span>
+            </div>
+          </div>
+
+          <div class="note">
+            결제/배송/인증은 아래 가이드에 따라 진행하면<br/>
+            실수 없이 빠르게 이용할 수 있습니다.
+          </div>
+
+          <a class="btn btn-primary" href="#shipping">주문/배송 가이드 보기 →</a>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <!-- 1. ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>1. 기린컴퍼니 소개: 왜 ‘기린컴퍼니’인가요?</h2>
+          <p>신뢰, 지원, 라인업. 도매 플랫폼에서 “지속적으로 운영되는 구조”가 가장 중요합니다.</p>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <article class="card soft">
+          <div class="icon">1</div>
+          <h3>대한민국 아동복 도매 사이트 1위</h3>
+          <p>2010년부터 이어온 신뢰의 법인 기업 운영. (주)노리앤이 운영합니다.</p>
+        </article>
+
+        <article class="card soft">
+          <div class="icon">2</div>
+          <h3>창업 지원 서비스</h3>
+          <p>초보 사업자를 위한 창업 무료 지원 및 다양한 혜택을 제공합니다.</p>
+        </article>
+
+        <article class="card soft">
+          <div class="icon">3</div>
+          <h3>다양한 상품 라인업</h3>
+          <p>아우터·탑·원피스부터 베이비·주니어·패밀리룩까지 모든 카테고리를 망라합니다.</p>
+        </article>
+      </div>
+
+      <div class="strip">
+        <div>
+          <strong>운영사의 신뢰 + 창업 지원 + 폭넓은 라인업</strong><br/>
+          <span>처음 시작하는 분도 “상품 구성”을 쉽게 만들 수 있는 기반을 제공합니다.</span>
+        </div>
+        <a class="btn btn-primary" href="#verify">도매 인증 절차 보기 →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. VERIFY -->
+  <section id="verify">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>2. 이용 안내 & 도매 인증 (가입 전 필수 확인!)</h2>
+          <p>기린컴퍼니는 도매 전용 쇼핑몰로, 일반 회원가입 후 도매 인증을 거쳐야 모든 서비스를 이용하실 수 있습니다.</p>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <article class="card">
+          <div class="step">
+            <div class="num">1</div>
+            <div>
+              <h3>회원가입</h3>
+              <p>홈페이지 상단 <b>[JOIN]</b> 메뉴를 통해 기본 정보를 입력합니다.</p>
+              <div class="sub">팁: 가입 후 바로 인증 게시판으로 이동하면 승인까지 흐름이 매끄럽습니다.</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="step">
+            <div class="num">2</div>
+            <div>
+              <h3>도매 인증 신청</h3>
+              <p><b>[COMMUNITY &gt; 도매인증]</b> 게시판을 통해 사업자 인증을 진행합니다.</p>
+              <div class="sub">도매 전용 플랫폼 특성상, 인증 완료 후 모든 서비스 이용이 가능합니다.</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="step">
+            <div class="num">3</div>
+            <div>
+              <h3>승인 완료</h3>
+              <p>인증이 완료되면 도매 회원만의 이벤트 참여 및 특별 단가 확인이 가능합니다.</p>
+              <div class="sub">승인 후: 도매가 확인 → 주문 진행 → 배송 조회까지 사이트에서 연동 확인 가능합니다.</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card soft">
+          <div class="icon">✓</div>
+          <h3>인증 후 가능한 것</h3>
+          <p>
+            도매가 열람 / 이벤트 참여 / 특별 단가 확인 / 주문 및 배송 관리 등
+            전체 기능을 이용할 수 있습니다.
+          </p>
+          <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn btn-primary" href="#shipping">주문/배송 가이드</a>
+            <a class="btn" href="#faq">FAQ 먼저 보기</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. SHIPPING -->
+  <section id="shipping">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>3. 주문 및 배송 가이드</h2>
+          <p>결제 실수(입금자명)와 배송 조회 방법만 정확히 알면 운영이 훨씬 편해집니다.</p>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <article class="card">
+          <div class="icon">₩</div>
+          <h3>결제 안내</h3>
+          <p>
+            <b>무통장 입금</b>: 국민은행 <b>038701-04-593814</b><br/>
+            예금주: <b>주식회사 노리앤</b>
+          </p>
+          <div class="sub">
+            주의: 주문자와 입금자 성함이 다를 경우 반드시 고객센터로 미리 연락 주셔야
+            빠른 확인이 가능합니다.
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="icon">🚚</div>
+          <h3>배송 서비스</h3>
+          <p>
+            <b>:contentReference[oaicite:0]{index=0}(1588-1255)</b>을 통해 신속하고 정확하게 배송됩니다.<br/>
+            홈페이지 내 <b>[택배조회하기]</b>를 통해 실시간 위치 확인이 가능합니다.
+          </p>
+          <div class="sub">
+            팁: 출고 후에는 운송장 조회로 고객 문의 대응 시간을 크게 줄일 수 있습니다.
+          </div>
+        </article>
+      </div>
+
+      <div class="strip">
+        <div>
+          <strong>배송 흐름을 단순하게</strong><br/>
+          <span>결제 확인 → 출고 → 택배조회까지 한 번에 안내되도록 구성하면 CS가 확 줄어듭니다.</span>
+        </div>
+        <a class="btn btn-primary" href="#support">주의사항/CS 보기 →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. FAQ -->
+  <section id="faq">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>4. 자주 묻는 질문 (FAQ)</h2>
+          <p>가장 많이 묻는 질문을 먼저 해결하면, 가입 전 이탈과 CS 부담이 크게 줄어듭니다.</p>
+        </div>
+      </div>
+
+      <div class="faq">
+        <details open>
+          <summary>
+            <div class="faq-q">
+              <span class="qtag">Q</span>
+              <span>주문을 취소하거나 변경하고 싶어요.</span>
+            </div>
+            <span class="chev" aria-hidden="true">⌄</span>
+          </summary>
+          <div class="faq-a">
+            <b>[주문취소 변경]</b> 게시판을 통해 요청 가능하며, 배송 상태에 따라 처리가 제한될 수 있습니다.
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            <div class="faq-q">
+              <span class="qtag">Q</span>
+              <span>찾는 상품이 사이트에 없어요.</span>
+            </div>
+            <span class="chev" aria-hidden="true">⌄</span>
+          </summary>
+          <div class="faq-a">
+            <b>[미등록상품주문]</b> 게시판을 이용해 별도로 문의해주시면 확인 후 도와드립니다.
+          </div>
+        </details>
+
+        <details>
+          <summary>
+            <div class="faq-q">
+              <span class="qtag">Q</span>
+              <span>품절 및 재고 확인은 어디서 하나요?</span>
+            </div>
+            <span class="chev" aria-hidden="true">⌄</span>
+          </summary>
+          <div class="faq-a">
+            <b>[품절 재고]</b> 및 <b>[긴급공지]</b> 게시판을 통해 실시간 업데이트 현황을 확인하실 수 있습니다.
+          </div>
+        </details>
+      </div>
+
+      <div class="strip">
+        <div>
+          <strong>FAQ를 더 강하게 만들고 싶다면</strong><br/>
+          <span>가장 많이 물어보는 질문 5~10개만 추가해도 가입률이 체감됩니다.</span>
+        </div>
+        <a class="btn btn-primary" href="#verify">도매 인증 다시 보기 →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. SUPPORT -->
+  <section id="support">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>5. 주의사항 및 고객지원</h2>
+          <p>결제/반품/문의 동선만 제대로 안내해도 운영 실수가 크게 줄어듭니다.</p>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <article class="card">
+          <div class="icon">!</div>
+          <h3>쇼핑 시 주의사항</h3>
+          <p>
+            • 결제창이 열려 있는 동안 창을 닫으면 주문이 완료되지 않으니 결제 완료 시까지 대기해주세요.<br/>
+            • 반품 시에는 반드시 고객센터에 미리 통보하고 지정된 택배사를 이용해야 합니다.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="icon">☎</div>
+          <h3>CS CENTER (고객센터)</h3>
+          <p>
+            전화: <b>1566-7211</b><br/>
+            운영 시간: <b>평일 AM 11:00 ~ AM 12:00</b><br/>
+            점심시간: <b>PM 12:00 ~ PM 01:00</b><br/>
+            토/일/공휴일 휴무, 업무시간 외 문의는 고객 게시판 이용
+          </p>
+          <div class="sub">
+            팁: “입금자명이 다른 경우” 같은 케이스는 문의가 잦으니,
+            결제 섹션에 굵게 안내해두면 CS가 확 줄어듭니다.
+          </div>
+        </article>
+      </div>
+
+      <!-- Final CTA -->
+      <div class="final-cta">
+        <div>
+          <h3>지금 바로 기린컴퍼니의 파트너가 되어 성공적인 아동복 비즈니스를 시작하세요!</h3>
+          <p>가입 → 도매 인증 → 승인 완료 후, 도매 회원 전용 혜택과 특별 단가를 확인하실 수 있습니다.</p>
+        </div>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="btn btn-primary" href="#verify">회원가입 바로가기</a>
+          <a class="btn" href="#verify">도매인증 방법 보기</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:6px;">
+            <span class="logo" aria-hidden="true" style="width:28px;height:28px;border-radius:10px;"></span>
+            <strong style="color: var(--text);">GIRIN COMPANY</strong>
+          </div>
+          <div>
+            © <span id="y"></span> GIRIN COMPANY. All rights reserved.<br/>
+            <span>(주)노리앤 운영 · 아동복 도매 플랫폼</span>
+          </div>
+        </div>
+
+        <div class="footer-links" aria-label="약관 링크">
+          <a href="#" onclick="alert('이용약관 링크로 교체하세요.'); return false;">이용약관</a>
+          <a href="#" onclick="alert('개인정보처리방침 링크로 교체하세요.'); return false;">개인정보처리방침</a>
+          <a href="#support">고객지원</a>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.getElementById("y").textContent = new Date().getFullYear();
+    </script>
+  </footer>
+</body>
+</html>
