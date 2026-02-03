@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기린컴퍼니 - 아동복 창업의 새로운 패러다임</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* === CSS Variables & Reset === */
+        :root {
+            --primary-color: #0F4C81; /* 신뢰감을 주는 클래식 블루 */
+            --secondary-color: #F0F4F8; /* 부드러운 배경색 */
+            --accent-color: #2D3436; /* 텍스트 블랙 */
+            --text-gray: #636e72;
+            --white: #ffffff;
+            --max-width: 1200px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            color: var(--accent-color);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* === Header === */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #eee;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+        }
+
+        .cta-btn-sm {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 10px 24px;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .cta-btn-sm:hover {
+            background-color: #0a355c;
+        }
+
+        /* === Hero Section === */
+        .hero {
+            padding: 160px 0 100px;
+            text-align: center;
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: #e3f2fd;
+            color: var(--primary-color);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            line-height: 1.3;
+            margin-bottom: 20px;
+            font-weight: 700;
+            word-break: keep-all;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-gray);
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .cta-btn-lg {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 16px 40px;
+            font-size: 18px;
+            border-radius: 8px;
+            font-weight: 700;
+            box-shadow: 0 10px 20px rgba(15, 76, 129, 0.2);
+            transition: var(--transition);
+        }
+
+        .cta-btn-lg:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(15, 76, 129, 0.3);
+        }
+
+        /* === Why Kirin (3 Zeros) === */
+        .features {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 36px;
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            color: var(--text-gray);
+            font-size: 18px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            padding: 40px;
+            border: 1px solid #eee;
+            border-radius: 12px;
+            text-align: center;
+            transition: var(--transition);
+            background: var(--white);
+        }
+
+        .feature-card:hover {
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transform: translateY(-5px);
+            border-color: transparent;
+        }
+
+        .icon-box {
+            font-size: 40px;
+            color: var(--primary-color);
+            margin-bottom: 24px;
+        }
+
+        .feature-card h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: var(--text-gray);
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        /* === Special Service === */
+        .special-service {
+            padding: 100px 0;
+            background-color: var(--secondary-color);
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .service-item {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .service-icon {
+            background: #e3f2fd;
+            color: var(--primary-color);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .service-content h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .service-content p {
+            color: var(--text-gray);
+            font-size: 15px;
+        }
+
+        /* === Package Plan === */
+        .pricing {
+            padding: 100px 0;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            border: 1px solid #eee;
+            border-radius: 16px;
+            padding: 50px 40px;
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .pricing-card.highlight {
+            border: 2px solid var(--primary-color);
+            background: #fdfdfd;
+        }
+
+        .badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .plan-name {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .price {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: var(--accent-color);
+        }
+
+        .period {
+            font-size: 16px;
+            color: var(--text-gray);
+            font-weight: 400;
+        }
+
+        .features-list {
+            margin-bottom: 40px;
+            text-align: left;
+        }
+
+        .features-list li {
+            margin-bottom: 15px;
+            color: var(--text-gray);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .features-list i {
+            color: var(--primary-color);
+        }
+
+        .pricing-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            border: 1px solid var(--primary-color);
+            border-radius: 8px;
+            color: var(--primary-color);
+            font-weight: 700;
+            transition: var(--transition);
+        }
+
+        .pricing-btn:hover, .pricing-card.highlight .pricing-btn {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        /* === CS & Footer === */
+        .cs-section {
+            background-color: #2D3436;
+            color: var(--white);
+            padding: 60px 0;
+        }
+
+        .cs-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .cs-info h3 { font-size: 24px; margin-bottom: 20px; }
+        .cs-info p { margin-bottom: 10px; color: #b2bec3; }
+        .kakao-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; }
+        .kakao-btn {
+            background: #FAE100;
+            color: #3C1E1E;
+            padding: 12px;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 14px;
+            display: block;
+        }
+
+        footer {
+            background: #1e272e;
+            color: #636e72;
+            padding: 40px 0;
+            font-size: 14px;
+            border-top: 1px solid #353b48;
+        }
+
+        /* === Responsive === */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 32px; }
+            .hero p { font-size: 16px; }
+            .service-grid { grid-template-columns: 1fr; }
+            .cs-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <div class="logo">GIRIN COMPANY</div>
+            <a href="#" class="cta-btn-sm">무료 회원가입</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <span class="hero-tag">아동복 B2B NO.1 플랫폼</span>
+            <h1>사업비 0원, 이미지 비용 0원, 사입비 0원!<br>아동복 창업의 새로운 패러다임</h1>
+            <p>1/100도 안 되는 금액으로 나만의 쇼핑몰을 구축하세요.<br>사업자 등록증만 있다면 지금 바로 무료로 시작할 수 있습니다.</p>
+            <div class="cta-group">
+                <a href="#" class="cta-btn-lg">무료 가입하기</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why GIRIN?</h2>
+                <p>사장님은 판매에만 집중하세요. 나머지는 기린컴퍼니가 해결합니다.</p>
+            </div>
+            <div class="grid-3">
+                <div class="feature-card">
+                    <div class="icon-box"><i class="fa-regular fa-id-card"></i></div>
+                    <h3>가입비 & 사업비 0원</h3>
+                    <p>사업자 등록증 인증 후 즉시 무료 이용.<br>초기 비용 부담 없이 시작하세요.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-box"><i class="fa-solid fa-camera"></i></div>
+                    <h3>고퀄리티 이미지 0원</h3>
+                    <p>자체 촬영 및 편집된 감성 아동복 이미지<br>저작권 걱정 없이 무료로 사용하세요.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-box"><i class="fa-solid fa-truck-fast"></i></div>
+                    <h3>사입 수수료 0원</h3>
+                    <p>오후 8시 주문 시 당일 사입 원칙.<br>복잡한 사입 과정을 무료로 대행해드립니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="special-service">
+        <div class="container">
+            <div class="section-header">
+                <h2>Special Service</h2>
+                <p>기린컴퍼니만의 특별한 책임 보장 시스템</p>
+            </div>
+            <div class="service-grid">
+                <div class="service-item">
+                    <div class="service-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <div class="service-content">
+                        <h3>100% 책임 보상제</h3>
+                        <p>상품 불량 및 오배송 발생 시,<br>왕복 택배비를 기린컴퍼니가 전액 부담합니다.</p>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
+                    <div class="service-content">
+                        <h3>투명한 현황 확인</h3>
+                        <p>주문 다음 날 정오(12시)에<br>사입 및 배송 현황을 투명하게 공개합니다.</p>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon"><i class="fa-solid fa-box-open"></i></div>
+                    <div class="service-content">
+                        <h3>재고 리스크 최소화</h3>
+                        <p>위탁 배송 시스템으로 재고 부담 Zero.<br>주문이 들어오면 그때 사입하세요.</p>
+                    </div>
+                </div>
+                <div class="service-item">
+                    <div class="service-icon"><i class="fa-solid fa-headset"></i></div>
+                    <div class="service-content">
+                        <h3>전문 상품 상담</h3>
+                        <p>아동복 전문가들이 상품 사이즈,<br>재질 등 상세한 상담을 지원합니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2>Premium Package</h2>
+                <p>더 빠르고, 더 편리한 쇼핑몰 운영을 위한 선택</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="plan-name">스마트 30</div>
+                    <div class="price">300,000원 <span class="period">/ 3개월</span></div>
+                    <ul class="features-list">
+                        <li><i class="fa-solid fa-check"></i> 대용량 상품 업데이트</li>
+                        <li><i class="fa-solid fa-check"></i> 엑셀 대량 등록 지원</li>
+                        <li><i class="fa-solid fa-check"></i> 기본 사입/배송 대행</li>
+                    </ul>
+                    <a href="#" class="pricing-btn">스마트 30 신청하기</a>
+                </div>
+                <div class="pricing-card highlight">
+                    <div class="badge">BEST CHOICE</div>
+                    <div class="plan-name">자동스마트 59</div>
+                    <div class="price">590,000원 <span class="period">/ 3개월</span></div>
+                    <ul class="features-list">
+                        <li><i class="fa-solid fa-check"></i> <strong>상품 자동 업데이트</strong></li>
+                        <li><i class="fa-solid fa-check"></i> 품절/재입고 자동 관리</li>
+                        <li><i class="fa-solid fa-check"></i> 쇼핑몰 관리 최적화 솔루션</li>
+                        <li><i class="fa-solid fa-check"></i> 전담 매니저 케어</li>
+                    </ul>
+                    <a href="#" class="pricing-btn">자동스마트 59 시작하기</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cs-section">
+        <div class="container cs-grid">
+            <div class="cs-info">
+                <h3>Customer Center</h3>
+                <p>운영시간: 평일 10:00 ~ 16:30</p>
+                <p>점심시간: 12:30 ~ 13:30 (주말/공휴일 휴무)</p>
+                <p style="margin-top:20px; font-size: 14px; opacity: 0.7;">문의량이 많아 전화보다는 카카오톡 채널을 이용해주시면<br>더욱 빠르고 정확한 상담이 가능합니다.</p>
+            </div>
+            <div class="kakao-list">
+                <a href="#" class="kakao-btn"><i class="fa-solid fa-comment"></i> 입점/가입 문의</a>
+                <a href="#" class="kakao-btn"><i class="fa-solid fa-comment"></i> 배송/사입 문의</a>
+                <a href="#" class="kakao-btn"><i class="fa-solid fa-comment"></i> 반품/교환 문의</a>
+                <a href="#" class="kakao-btn"><i class="fa-solid fa-comment"></i> 세금계산서 문의</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p><strong>(주)기린컴퍼니</strong> | 대표자: 홍길동 | 사업자등록번호: 000-00-00000</p>
+            <p>주소: 서울특별시 강남구 테헤란로 000 기린빌딩 5층</p>
+            <p>통신판매업신고: 2024-서울강남-0000호 | 개인정보관리책임자: 김철수</p>
+            <br>
+            <p>© 2024 GIRIN COMPANY. All rights reserved. | <a href="#" style="text-decoration: underline;">이용약관</a> | <a href="#" style="text-decoration: underline;">개인정보처리방침</a></p>
+        </div>
+    </section>
+
+</body>
+</html>

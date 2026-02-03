@@ -1,0 +1,956 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>기린컴퍼니(GIRIN COMPANY) | 아동복 사입대행 · 위탁배송</title>
+  <meta name="description" content="사업비 0원, 이미지 비용 0원, 사입비(수수료) 0원! 아동복 창업의 새로운 패러다임. 무료 가입·인증, 고퀄리티 이미지 무료 제공, 당일 사입 시스템, 불량·오배송 왕복 택배비 100% 부담." />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #ffffff;
+      --text: #0f172a;            /* slate-900 */
+      --muted: #475569;           /* slate-600 */
+      --line: rgba(15, 23, 42, .10);
+      --card: rgba(2, 6, 23, .03);
+      --primary: #2563eb;         /* blue-600 */
+      --primary-2: #60a5fa;       /* blue-400 */
+      --soft: rgba(37, 99, 235, .10);
+      --radius: 18px;
+      --shadow: 0 12px 30px rgba(2, 6, 23, .10);
+      --shadow-soft: 0 10px 24px rgba(2, 6, 23, .08);
+      --max: 1120px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:"Noto Sans KR", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      letter-spacing: -0.2px;
+    }
+
+    a{color:inherit; text-decoration:none}
+    .container{
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    /* Top Nav */
+    .nav{
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(10px);
+      background: rgba(255,255,255,.75);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 14px;
+      padding: 14px 0;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      font-weight: 800;
+      letter-spacing: 0.2px;
+    }
+    .logo{
+      width: 34px; height: 34px;
+      border-radius: 12px;
+      background:
+        radial-gradient(120% 120% at 20% 20%, rgba(96,165,250,.55) 0%, rgba(37,99,235,.45) 40%, rgba(37,99,235,.15) 100%),
+        linear-gradient(180deg, rgba(255,255,255,.85), rgba(255,255,255,0));
+      border: 1px solid rgba(37,99,235,.25);
+      box-shadow: 0 10px 20px rgba(37,99,235,.15);
+      position: relative;
+      overflow:hidden;
+    }
+    .logo:after{
+      content:"";
+      position:absolute; inset:-20px;
+      background: conic-gradient(from 180deg, rgba(255,255,255,.0), rgba(255,255,255,.55), rgba(255,255,255,0));
+      transform: rotate(12deg);
+      opacity: .55;
+    }
+    .brand small{
+      display:block;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: -0.2px;
+      margin-top: 1px;
+    }
+    .nav-links{
+      display:flex;
+      gap: 18px;
+      align-items:center;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .nav-links a{
+      padding: 10px 10px;
+      border-radius: 10px;
+    }
+    .nav-links a:hover{
+      background: rgba(2,6,23,.04);
+      color: var(--text);
+    }
+    .nav-cta{
+      display:flex;
+      gap: 10px;
+      align-items:center;
+    }
+
+    /* Buttons */
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--text);
+      padding: 12px 16px;
+      border-radius: 14px;
+      font-weight: 700;
+      font-size: 14px;
+      box-shadow: 0 6px 18px rgba(2,6,23,.06);
+      transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+      cursor:pointer;
+      white-space: nowrap;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 12px 26px rgba(2,6,23,.10);
+      border-color: rgba(37,99,235,.25);
+    }
+    .btn-primary{
+      background: linear-gradient(135deg, var(--primary) 0%, #1d4ed8 55%, #1e40af 100%);
+      color:#fff;
+      border-color: rgba(37,99,235,.35);
+      box-shadow: 0 14px 34px rgba(37,99,235,.25);
+    }
+    .btn-primary:hover{
+      box-shadow: 0 18px 44px rgba(37,99,235,.30);
+      transform: translateY(-2px);
+    }
+    .btn-ghost{
+      background: rgba(2,6,23,.02);
+    }
+
+    /* Hero */
+    .hero{
+      position: relative;
+      overflow: hidden;
+      padding: 56px 0 24px;
+    }
+    .hero:before{
+      content:"";
+      position:absolute;
+      inset:-220px -100px auto -100px;
+      height: 520px;
+      background:
+        radial-gradient(60% 60% at 15% 30%, rgba(96,165,250,.35) 0%, rgba(96,165,250,0) 60%),
+        radial-gradient(60% 60% at 70% 15%, rgba(37,99,235,.22) 0%, rgba(37,99,235,0) 60%),
+        radial-gradient(60% 60% at 85% 65%, rgba(14,165,233,.15) 0%, rgba(14,165,233,0) 62%);
+      pointer-events:none;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 28px;
+      align-items: stretch;
+      position: relative;
+      z-index: 2;
+      padding: 34px 0 16px;
+    }
+
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--primary);
+      background: var(--soft);
+      border: 1px solid rgba(37,99,235,.20);
+      padding: 9px 12px;
+      border-radius: 999px;
+      width: fit-content;
+    }
+    .hero h1{
+      margin: 16px 0 12px;
+      font-size: clamp(30px, 3.2vw, 46px);
+      line-height: 1.12;
+      letter-spacing: -0.8px;
+    }
+    .hero p{
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.75;
+      max-width: 54ch;
+    }
+
+    .hero-cta{
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+    .trust-row{
+      margin-top: 18px;
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 13px;
+    }
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.65);
+    }
+
+    .hero-card{
+      border: 1px solid rgba(37,99,235,.18);
+      background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.78));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+      display:flex;
+      flex-direction: column;
+      gap: 14px;
+      position: relative;
+      overflow:hidden;
+    }
+    .hero-card:before{
+      content:"";
+      position:absolute;
+      inset:auto -120px -160px auto;
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(50% 50% at 50% 50%, rgba(37,99,235,.18) 0%, rgba(37,99,235,0) 70%);
+      pointer-events:none;
+    }
+    .hero-card h3{
+      margin:0;
+      font-size: 16px;
+      letter-spacing:-0.3px;
+    }
+    .stat-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 4px;
+    }
+    .stat{
+      padding: 14px 14px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(2,6,23,.02);
+    }
+    .stat strong{
+      display:block;
+      font-size: 18px;
+      letter-spacing:-0.3px;
+    }
+    .stat span{
+      display:block;
+      margin-top: 4px;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 13px;
+    }
+    .mini-note{
+      padding: 14px 14px;
+      border-radius: 14px;
+      border: 1px dashed rgba(37,99,235,.35);
+      background: rgba(37,99,235,.06);
+      color: #1e3a8a;
+      font-weight: 700;
+      line-height: 1.55;
+      font-size: 13px;
+    }
+
+    /* Sections */
+    section{
+      padding: 56px 0;
+      border-top: 1px solid var(--line);
+    }
+    .section-head{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap: 18px;
+      margin-bottom: 22px;
+    }
+    .section-head h2{
+      margin:0;
+      font-size: 28px;
+      letter-spacing: -0.6px;
+    }
+    .section-head p{
+      margin:0;
+      color: var(--muted);
+      max-width: 58ch;
+      line-height: 1.7;
+      font-weight: 500;
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .grid-2{
+      display:grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .card{
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow-soft);
+    }
+    .card.soft{
+      background: linear-gradient(180deg, rgba(2,6,23,.02), rgba(2,6,23,.01));
+      box-shadow: 0 10px 22px rgba(2,6,23,.06);
+    }
+
+    .icon{
+      width: 44px; height: 44px;
+      border-radius: 14px;
+      background: rgba(37,99,235,.10);
+      border: 1px solid rgba(37,99,235,.18);
+      display:grid;
+      place-items:center;
+      margin-bottom: 12px;
+      flex: 0 0 auto;
+    }
+    .card h3{
+      margin: 0 0 8px;
+      font-size: 18px;
+      letter-spacing:-0.4px;
+    }
+    .card p{
+      margin:0;
+      color: var(--muted);
+      line-height: 1.75;
+      font-weight: 500;
+      font-size: 14px;
+    }
+
+    /* Highlight strip */
+    .strip{
+      margin-top: 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(37,99,235,.18);
+      background: linear-gradient(135deg, rgba(37,99,235,.10), rgba(96,165,250,.08), rgba(255,255,255,.7));
+      padding: 18px 18px;
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px 14px;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .strip strong{
+      font-size: 15px;
+      letter-spacing:-0.3px;
+    }
+    .strip span{
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 13px;
+    }
+
+    /* Package */
+    .price{
+      font-size: 26px;
+      font-weight: 900;
+      letter-spacing:-0.6px;
+      margin: 10px 0 4px;
+    }
+    .price small{
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--muted);
+    }
+    ul.features{
+      margin: 14px 0 0;
+      padding: 0;
+      list-style: none;
+      display:flex;
+      flex-direction: column;
+      gap: 10px;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+    ul.features li{
+      display:flex;
+      gap: 10px;
+      align-items:flex-start;
+    }
+    .check{
+      width: 18px; height: 18px;
+      border-radius: 6px;
+      background: rgba(34,197,94,.16);
+      border: 1px solid rgba(34,197,94,.30);
+      margin-top: 2px;
+      position: relative;
+      flex: 0 0 auto;
+    }
+    .check:after{
+      content:"";
+      position:absolute;
+      left: 5px; top: 3px;
+      width: 6px; height: 9px;
+      border-right: 2px solid rgba(22,163,74,.95);
+      border-bottom: 2px solid rgba(22,163,74,.95);
+      transform: rotate(35deg);
+    }
+    .tag{
+      display:inline-flex;
+      align-items:center;
+      gap: 8px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 900;
+      border: 1px solid rgba(37,99,235,.20);
+      background: rgba(37,99,235,.08);
+      color: #1d4ed8;
+    }
+    .popular{
+      border: 1px solid rgba(37,99,235,.32) !important;
+      box-shadow: 0 18px 44px rgba(37,99,235,.18);
+      position: relative;
+      overflow:hidden;
+    }
+    .popular:before{
+      content:"";
+      position:absolute;
+      inset:-120px -160px auto auto;
+      width: 360px; height: 360px;
+      background: radial-gradient(50% 50% at 50% 50%, rgba(37,99,235,.22) 0%, rgba(37,99,235,0) 70%);
+      pointer-events:none;
+    }
+
+    /* CS */
+    .cs-box{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      align-items: stretch;
+    }
+    .cs-line{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(2,6,23,.02);
+      font-weight: 800;
+      font-size: 13px;
+      color: var(--text);
+    }
+    .pill small{
+      display:block;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 12px;
+    }
+    .pill .dot{
+      width: 10px; height: 10px;
+      border-radius: 999px;
+      background: var(--primary);
+      box-shadow: 0 0 0 6px rgba(37,99,235,.12);
+      margin-top: 2px;
+      flex: 0 0 auto;
+    }
+
+    /* Footer */
+    footer{
+      border-top: 1px solid var(--line);
+      padding: 28px 0 40px;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 13px;
+    }
+    .footer-grid{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .footer-links{
+      display:flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .footer-links a{
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: rgba(2,6,23,.02);
+    }
+    .footer-links a:hover{
+      border-color: rgba(37,99,235,.25);
+      color: var(--text);
+    }
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      .grid-3{ grid-template-columns: 1fr; }
+      .grid-2{ grid-template-columns: 1fr; }
+      .cs-box{ grid-template-columns: 1fr; }
+      .nav-links{ display:none; }
+    }
+    @media (max-width: 420px){
+      .btn{ width: 100%; }
+      .hero-cta{ flex-direction: column; }
+      .stat-grid{ grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAV -->
+  <header class="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <a class="brand" href="#top" aria-label="GIRIN COMPANY">
+          <span class="logo" aria-hidden="true"></span>
+          <span>
+            GIRIN COMPANY
+            <small>아동복 사입대행 · 위탁배송 전문</small>
+          </span>
+        </a>
+
+        <nav class="nav-links" aria-label="메뉴">
+          <a href="#why">Why Kirin</a>
+          <a href="#service">Special Service</a>
+          <a href="#plan">Package Plan</a>
+          <a href="#cs">CS & Guide</a>
+        </nav>
+
+        <div class="nav-cta">
+          <a class="btn btn-ghost" href="#plan">패키지 보기</a>
+          <a class="btn btn-primary" href="#join">무료 가입하기</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main id="top" class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="badge">
+            <span aria-hidden="true">◆</span>
+            <span>사업 초기 비용 부담을 “0”에 가깝게</span>
+          </div>
+
+          <h1>
+            사업비 0원, 이미지 비용 0원, 사입비(수수료) 0원!<br/>
+            <span style="color: var(--primary);">아동복 창업의 새로운 패러다임</span>
+          </h1>
+
+          <p>
+            시작은 가볍게, 운영은 탄탄하게. 기린컴퍼니는 <b>무료 가입·인증</b>부터
+            <b>고퀄리티 이미지 무료 제공</b>, <b>당일 사입</b>, <b>책임 정책</b>까지
+            “판매자가 오래 살아남는 구조”로 설계했습니다.
+          </p>
+
+          <div class="hero-cta" id="join">
+            <a class="btn btn-primary" href="#cs" aria-label="무료 가입 안내로 이동">
+              무료 가입하기 <span aria-hidden="true">→</span>
+            </a>
+            <a class="btn" href="#why">혜택 한눈에 보기</a>
+          </div>
+
+          <div class="trust-row">
+            <span class="chip">✔ 사업자 등록증 확인 후 즉시 무료 이용</span>
+            <span class="chip">✔ 오후 8시 전 주문 시 당일 사입</span>
+            <span class="chip">✔ 불량·오배송 왕복 택배비 100% 부담</span>
+          </div>
+
+          <div class="strip">
+            <div>
+              <strong>“1/100도 안 되는 금액으로 나만의 쇼핑몰을 구축하세요.”</strong><br/>
+              <span>초기 비용을 낮추고, 운영 리스크를 줄여 “지속 가능한 매출”에 집중하세요.</span>
+            </div>
+            <a class="btn btn-primary" href="#plan">패키지 비교 보기</a>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="핵심 요약 카드">
+          <h3>핵심 요약</h3>
+          <div class="stat-grid">
+            <div class="stat">
+              <strong>0원 혜택</strong>
+              <span>사업비 · 이미지비 · 사입수수료</span>
+            </div>
+            <div class="stat">
+              <strong>당일 사입</strong>
+              <span>20시 전 주문 → 당일 진행</span>
+            </div>
+            <div class="stat">
+              <strong>익일 확인</strong>
+              <span>정오 사입 현황 확인 가능</span>
+            </div>
+            <div class="stat">
+              <strong>책임 정책</strong>
+              <span>불량/오배송 왕복 택배비 부담</span>
+            </div>
+          </div>
+
+          <div class="mini-note">
+            운영에서 가장 스트레스 받는 구간(불량·오배송·확인 지연)을 줄여
+            “고객 응대와 판매”에 시간을 쓰게 만드는 것이 기린컴퍼니의 방식입니다.
+          </div>
+
+          <a class="btn btn-primary" href="#cs">카톡 상담/가입 안내 보기 →</a>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <!-- WHY KIRIN -->
+  <section id="why">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Why Kirin</h2>
+          <p>
+            “지금 바로 시작해도 되는 구조”를 만들었습니다.
+            3대 제로(0원) 혜택으로 초기 부담을 최소화하세요.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <article class="card soft">
+          <div class="icon" aria-hidden="true">
+            <!-- briefcase icon -->
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M9 6a3 3 0 0 1 6 0v2H9V6Z" stroke="#2563eb" stroke-width="2" stroke-linecap="round"/>
+              <path d="M4 10a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8Z" stroke="#2563eb" stroke-width="2"/>
+              <path d="M4 14h16" stroke="#2563eb" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>사업비 0원</h3>
+          <p>
+            무료 가입 및 인증으로 시작하세요.
+            <b>사업자 등록증 확인 후</b> 즉시 무료 이용이 가능합니다.
+          </p>
+        </article>
+
+        <article class="card soft">
+          <div class="icon" aria-hidden="true">
+            <!-- image icon -->
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6Z" stroke="#2563eb" stroke-width="2"/>
+              <path d="M8 11a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" stroke="#2563eb" stroke-width="2"/>
+              <path d="M21 16l-6-6-5 5-3-3-3 3" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>이미지 비용 0원</h3>
+          <p>
+            자체 촬영 및 편집된 <b>고퀄리티 아동복 이미지</b>를
+            제한 없이 무료로 제공하여 콘텐츠 제작 시간을 줄입니다.
+          </p>
+        </article>
+
+        <article class="card soft">
+          <div class="icon" aria-hidden="true">
+            <!-- coins icon -->
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M12 6c4.418 0 8-1.343 8-3s-3.582-3-8-3-8 1.343-8 3 3.582 3 8 3Z" stroke="#2563eb" stroke-width="2"/>
+              <path d="M20 6v6c0 1.657-3.582 3-8 3s-8-1.343-8-3V6" stroke="#2563eb" stroke-width="2"/>
+              <path d="M20 12v6c0 1.657-3.582 3-8 3s-8-1.343-8-3v-6" stroke="#2563eb" stroke-width="2"/>
+            </svg>
+          </div>
+          <h3>사입비(수수료) 0원</h3>
+          <p>
+            불필요한 비용을 줄이고, 판매 마진을 지키세요.
+            운영 안정성을 위해 프로세스를 표준화했습니다.
+          </p>
+        </article>
+      </div>
+
+      <div class="strip" style="margin-top:16px;">
+        <div>
+          <strong>사입 시스템</strong><br/>
+          <span>오후 8시 전 주문 시 당일 사입 · 익일 정오 사입 현황 확인 가능</span>
+        </div>
+        <a class="btn" href="#service">특별 서비스 보기 →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPECIAL SERVICE -->
+  <section id="service">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Special Service</h2>
+          <p>
+            “운영에서 문제가 생겼을 때” 진짜 차이가 납니다.
+            기린컴퍼니는 리스크를 줄이는 정책과 서비스로 파트너를 지원합니다.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <article class="card">
+          <div class="icon" aria-hidden="true">
+            <!-- shield icon -->
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M12 2l8 4v6c0 5-3.5 9.5-8 10-4.5-.5-8-5-8-10V6l8-4Z" stroke="#2563eb" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M9 12l2 2 4-4" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>불량·오배송 책임제</h3>
+          <p>
+            불량 및 오배송 발생 시 <b>왕복 택배비 100% 기린컴퍼니 부담</b>.
+            불필요한 분쟁과 손실을 최소화합니다.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="icon" aria-hidden="true">
+            <!-- chat icon -->
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M21 12a8 8 0 0 1-8 8H7l-4 2 1.4-4.2A8 8 0 1 1 21 12Z" stroke="#2563eb" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M8 12h8" stroke="#2563eb" stroke-width="2" stroke-linecap="round"/>
+              <path d="M8 8h5" stroke="#2563eb" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3>상품 상담 & 운영 지원</h3>
+          <p>
+            판매에 필요한 정보, 상품 관련 문의, 운영 흐름을 빠르게 정리해드립니다.
+            “혼자 운영”이 아니라 “팀과 운영”하는 느낌을 제공합니다.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="icon" aria-hidden="true">
+            <!-- refresh icon -->
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M21 12a9 9 0 1 1-2.64-6.36" stroke="#2563eb" stroke-width="2" stroke-linecap="round"/>
+              <path d="M21 3v6h-6" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>재고 교환/조율 서비스</h3>
+          <p>
+            재고·옵션·교환 등의 변수를 “현장 기준”으로 정리해
+            판매자의 CS 부담을 줄입니다.
+          </p>
+        </article>
+      </div>
+
+      <div class="strip">
+        <div>
+          <strong>운영 리스크를 줄이는 방식</strong><br/>
+          <span>정책(책임) + 프로세스(당일 사입) + 리소스(이미지)로 운영 안정성을 확보합니다.</span>
+        </div>
+        <a class="btn btn-primary" href="#plan">패키지로 자동화하기 →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PACKAGE PLAN -->
+  <section id="plan">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>Package Plan</h2>
+          <p>
+            “업데이트와 관리”까지 한 번에.
+            규모와 운영 스타일에 맞춰 패키지를 선택하세요.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <article class="card">
+          <span class="tag">대용량 업데이트</span>
+          <h3 style="margin-top:10px;">스마트30</h3>
+          <div class="price">30만 원 <small>/ 3달</small></div>
+          <p>
+            대량 상품 업데이트를 자주 하는 운영자에게 추천합니다.
+            필요한 타이밍에 빠르게 확장하세요.
+          </p>
+
+          <ul class="features">
+            <li><span class="check" aria-hidden="true"></span><span>대용량 업데이트용 패키지</span></li>
+            <li><span class="check" aria-hidden="true"></span><span>운영 효율을 위한 업무 흐름 정리</span></li>
+            <li><span class="check" aria-hidden="true"></span><span>기본 혜택(3대 제로/당일 사입/책임 정책) 기반</span></li>
+          </ul>
+
+          <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn btn-primary" href="#cs">문의/결제 안내</a>
+            <a class="btn" href="#why">무료 혜택 먼저 보기</a>
+          </div>
+        </article>
+
+        <article class="card popular">
+          <span class="tag">자동 업데이트 · 최적화</span>
+          <h3 style="margin-top:10px;">자동스마트59</h3>
+          <div class="price">59만 원 <small>/ 3달</small></div>
+          <p>
+            반복 업무를 줄이고 “판매에 집중”하고 싶은 운영자에게 추천합니다.
+            자동화 중심의 최적화로 관리 스트레스를 낮춥니다.
+          </p>
+
+          <ul class="features">
+            <li><span class="check" aria-hidden="true"></span><span>자동 업데이트 및 관리 최적화</span></li>
+            <li><span class="check" aria-hidden="true"></span><span>변동 사항 반영·정리 흐름을 체계화</span></li>
+            <li><span class="check" aria-hidden="true"></span><span>운영 시간이 곧 매출이 되는 구조로 설계</span></li>
+          </ul>
+
+          <div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn btn-primary" href="#cs">가장 빠른 시작</a>
+            <a class="btn btn-ghost" href="#service">특별 서비스 확인</a>
+          </div>
+        </article>
+      </div>
+
+      <div class="strip" style="margin-top:16px;">
+        <div>
+          <strong>“1/100도 안 되는 금액”으로 시작해도 되는 이유</strong><br/>
+          <span>무료 가입·이미지·사입 구조 + 패키지로 업데이트/관리를 붙여, 운영 병목을 줄입니다.</span>
+        </div>
+        <a class="btn" href="#cs">카톡 담당자 안내 →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CS & GUIDE -->
+  <section id="cs">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <h2>CS & Guide</h2>
+          <p>
+            빠른 응대는 운영의 경쟁력입니다.
+            업무별 담당자 안내와 운영 시간 정보를 확인하세요.
+          </p>
+        </div>
+      </div>
+
+      <div class="cs-box">
+        <div class="card">
+          <div class="icon" aria-hidden="true">
+            <!-- clock icon -->
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Z" stroke="#2563eb" stroke-width="2"/>
+              <path d="M12 6v6l4 2" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>운영 시간</h3>
+          <p>
+            평일 <b>10:00 ~ 16:30</b><br/>
+            (점심/휴무 정책은 내부 운영 기준에 따름)
+          </p>
+
+          <div class="strip" style="margin-top:14px;">
+            <div>
+              <strong>무료 가입 & 인증</strong><br/>
+              <span>사업자 등록증 확인 후 즉시 무료 이용 가능</span>
+            </div>
+            <a class="btn btn-primary" href="#join">무료로 시작하기</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="icon" aria-hidden="true">
+            <!-- kakao-like bubble icon -->
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path d="M12 3c5 0 9 3.2 9 7.2S17 17.4 12 17.4c-.7 0-1.4-.1-2.1-.2L6 21l.9-4.3C5.1 15.4 3 13 3 10.2 3 6.2 7 3 12 3Z" stroke="#2563eb" stroke-width="2" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>업무별 카카오톡 담당자 안내</h3>
+          <p>
+            아래는 “표기 예시”입니다. 실제 카톡 ID/링크는 운영 중인 계정에 맞춰 교체하세요.
+          </p>
+
+          <div class="cs-line" aria-label="담당자 안내">
+            <span class="pill"><span class="dot"></span>가입/인증 <small>@girin_join</small></span>
+            <span class="pill"><span class="dot"></span>사입/출고 <small>@girin_order</small></span>
+            <span class="pill"><span class="dot"></span>불량/교환 <small>@girin_return</small></span>
+            <span class="pill"><span class="dot"></span>패키지/결제 <small>@girin_pay</small></span>
+            <span class="pill"><span class="dot"></span>상품상담 <small>@girin_cs</small></span>
+          </div>
+
+          <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
+            <a class="btn btn-primary" href="#join">무료 가입하기</a>
+            <a class="btn" href="#plan">패키지 다시 보기</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div style="display:flex; align-items:center; gap:10px; margin-bottom:6px;">
+            <span class="logo" aria-hidden="true" style="width:28px;height:28px;border-radius:10px;"></span>
+            <strong style="color: var(--text);">GIRIN COMPANY</strong>
+          </div>
+          <div>
+            © <span id="y"></span> GIRIN COMPANY. All rights reserved.<br/>
+            <span>아동복 사입대행 · 위탁배송 전문 기업형 서비스</span>
+          </div>
+        </div>
+
+        <div class="footer-links" aria-label="약관 링크">
+          <a href="#" onclick="alert('이용약관 링크로 교체하세요.'); return false;">이용약관</a>
+          <a href="#" onclick="alert('개인정보처리방침 링크로 교체하세요.'); return false;">개인정보처리방침</a>
+          <a href="#cs">고객센터</a>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.getElementById("y").textContent = new Date().getFullYear();
+    </script>
+  </footer>
+</body>
+</html>
